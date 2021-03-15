@@ -1,0 +1,71 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Home page";
+	Layout = "_Layout";
+	ViewBag.Title = "Welcome on my page";
+}
+@addTagHelper *, Misrosoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</head>
+<body>
+	<div class="form-control">
+		<h2>Proszę podać dane</h2>
+		<form method="post">
+			<label asp-for="person.firstName"></label>
+			<input asp-for="person.firstName" />
+			<span asp-validation-for="person.firstName" class="text-danger"> </span>
+			<br /><br />
+			<label asp-for="person.EmailAddress"></label>
+			<input type="email" asp-for="person.EmailAddress" /><br /><br />
+
+			<label asp-for="person.height"></label>
+			<input asp-for="person.height" />
+			<span asp-validation-for="person.height" class="text-danger"> </span>
+			<label asp-for="person.selectList"></label>
+			<select asp-for="person.selectList">
+				<option value="">Select unit of measure</option>
+				<option value="1">cm</option>
+				<option value="2">m</option>
+			</select>
+			<br /><br />
+			<label asp-for="person.wage"></label>
+			<input asp-for="person.wage" /> kg
+			<span asp-validation-for="person.wage" class="text-danger"> </span>
+			<br /><br />
+			<label asp-for="person.age"></label>
+			<input asp-for="person.age" /><br /><br />
+
+			<label asp-for="person.Gender"></label>
+			<input type="radio" asp-for="person.Gender" value="male" />
+			Mężczyzna
+			<input type="radio" asp-for="person.Gender" value="female" />
+			Kobieta
+			<span asp-validation-for="person.Gender" class="text-danger"> </span>
+			<br />
+			<button type="submit" class="btn btn-primary btn-lg active">Zatwierdź</button>
+			<br /><br />
+
+
+		</form>
+		<a href="/Index">
+			<button type="button" class="btn btn-secondary">Powrót do strony głównej</button>
+		</a>
+
+	</div>
+	
+
+
+
+
+	
+</body>
+</html>

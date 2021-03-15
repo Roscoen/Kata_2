@@ -1,0 +1,48 @@
+﻿@page
+@model Kata_2.Pages.FormConfirmedModel
+@{
+	ViewBag.Title = "Welcome on my page";
+}
+@{
+	Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Welcome</title>
+</head>
+<body>
+	<div class="form-control">
+
+		<h3>Dziękuję za wprowadzone informacje</h3>
+		<h2>Wprowadziłeś następujące dane:</h2>
+		<label>Imię:</label> @Model.firstName<br />
+		<label>Mail:</label> @Model.EmailAddress <br />
+		<label>Wzrost:</label> @Model.height
+		@Model.selectList <br />
+		<label>Waga:</label> @Model.wage <br />
+		<label>Wiek:</label> @Model.age <br />
+		<label>Płeć:</label> @Model.Gender<br />
+		<h4>Twoje BMI wynosi:</h4>
+		<label>BMI:</label> @Model.BMI
+		@if (Model.BMI < 18.5 || Model.BMI > 24.99)
+		{
+			<div class="text-danger">
+				Twój wynik jest nieprawidłowy
+			</div>
+		}
+		else
+		{
+			<span><br />Tak trzymaj</span>
+		}
+		<br /><br />
+		<a href="/Index">
+			<button type="button" class="btn btn-secondary">Powrót do strony głównej</button>
+		</a>
+	</div>
+	
+
+
+</body>
+</html>
